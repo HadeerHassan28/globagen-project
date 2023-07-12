@@ -1,16 +1,16 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
-import Footer from "../Footer/Footer";
 import { Outlet } from "react-router-dom";
+import Footer from "../Footer/Footer";
 import ContextTheme from "../../Context/Context";
 
 const Layout = () => {
   return (
     <ContextTheme>
       <div>
-        <NavBar></NavBar>
-        <Outlet></Outlet>
-        <Footer></Footer>
+        <NavBar />
+        <Outlet />
+        <Footer />
       </div>
     </ContextTheme>
   );
