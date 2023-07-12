@@ -1,7 +1,8 @@
 import * as React from "react";
 import logo from "../../assets/logo.png";
-
+import { useTranslation } from "react-i18next";
 const NavBar = () => {
+  const { t } = useTranslation();
   return (
     <>
       <nav className={`navbar navbar-expand-lg bg-body-tertiary`}>
@@ -30,28 +31,28 @@ const NavBar = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/">
-                  Home
+                  {t("Home")}
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="about">
-                  About Us
+                  {t("About Us")}
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="research">
-                  Research
+                  {t("Research")}
                 </a>
               </li>
 
               <li className="nav-item">
                 <a className="nav-link" href="products">
-                  Products
+                  {t("Products")}
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="contact">
-                  Contact Us
+                  {t("Contact us")}
                 </a>
               </li>
             </ul>
