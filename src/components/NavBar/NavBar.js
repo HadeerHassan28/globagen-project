@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <>
       <nav className="navbar navbar-light bg-light">
-        <Link className="navbar-brand" href="Nav">
+        <Link className="navbar-brand" href="home">
           <img
             src="/docs/4.0/assets/brand/bootstrap-solid.svg"
             width="30"
