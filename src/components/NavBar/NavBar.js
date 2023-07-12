@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <>
       <nav className="navbar navbar-light bg-light">
-        <Link className="navbar-brand" href="home">
+        <Link className="navbar-brand" href="Nav">
           <img
             src="/docs/4.0/assets/brand/bootstrap-solid.svg"
             width="30"
@@ -18,6 +18,17 @@ const NavBar = () => {
           />
           Bootstrap
         </Link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item active">
