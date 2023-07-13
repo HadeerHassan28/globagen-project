@@ -76,14 +76,20 @@ const Research = () => {
       </h1>
       {parag.map((ele) => (
         <div
-          className={`ms-3 d-flex justify-content-sm-start align-content-start flex-wrap blockquote text-sm-left`}
+          className={`ms-3 d-flex align-items-sm-start justify-content-sm-start blockquote flex-column`}
           style={{ color: isTheme === true ? "white" : "#071848" }}
+          key={ele.id}
         >
-          <p key={ele.id}>{ele.p}</p>
+          <p
+            className={`paragraph`}
+            style={{ color: isTheme === true ? "white" : "#071848" }}
+          >
+            {ele.p}
+          </p>
         </div>
       ))}
       <div
-        className="container d-flex justify-content-center mt-3 display-4 my-4"
+        className="d-flex justify-content-center mt-3 display-4 my-4"
         style={{ color: isTheme === true ? "white" : "#071848" }}
       >
         <p>{t("Welcome to the world of Globagen!")}</p>

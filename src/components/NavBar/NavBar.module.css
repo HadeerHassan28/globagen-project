@@ -4,3 +4,7 @@
 .activeStyle {
   color: #09bed0;
 }
+
+span {
+  background-color: white !important;
+}
