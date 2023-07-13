@@ -93,17 +93,17 @@ const NavBar = () => {
                 </Link>
               </li>
             </ul>
-            <button
-              className={`btn btn-link d-flex ${styles.themeToggle}`}
-              onClick={toggleTheme}
-            >
-              {theme === "light" ? (
-                <Brightness4 fontSize="small" />
-              ) : (
-                <Brightness7 fontSize="small" />
-              )}
-            </button>
           </div>
+          <button
+            className={`btn btn-link  d-flex flex-row-reverse ${styles.themeToggle}`}
+            onClick={toggleTheme}
+          >
+            {theme === "light" ? (
+              <Brightness4 fontSize="small" />
+            ) : (
+              <Brightness7 fontSize="small" />
+            )}
+          </button>
         </div>
       </nav>
     </>
