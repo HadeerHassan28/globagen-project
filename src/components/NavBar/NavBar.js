@@ -1,21 +1,39 @@
 import * as React from "react";
+import { useContext } from "react";
+import styles from "./Navbar.module.css";
 import logo from "../../assets/logo.png";
 import { useTranslation } from "react-i18next";
+import { Brightness4, Brightness7 } from "@mui/icons-material";
+import { conTheme } from "../../Context/Context";
+import { Link, NavLink, useLocation } from "react-router-dom";
+
 const NavBar = () => {
   const { t } = useTranslation();
+  let { toggleTheme, themeConfig } = useContext(conTheme);
+  const theme = themeConfig.palette.mode;
+  //   const location = useLocation();
+  // const isActiveLink = (path) => {
+  //   return location.pathname === path;
+  // };
+  //   const activeLinkStyle = {
+  //     color: " #09bed0",
+  //   };
   return (
     <>
-      <nav className={`navbar navbar-expand-lg bg-body-tertiary`}>
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+      <nav
+        className={`navbar navbar-expand-lg `}
+        style={{ backgroundColor: "#071848" }}
+      >
+        <div className="container-fluid ">
+          <Link className="navbar-brand" href="/">
             <img
               src={logo}
               alt="Logo"
-              width="30"
+              width="110"
               height="24"
               className="d-inline-block align-text-top"
             />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -27,35 +45,69 @@ const NavBar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div
+            className="collapse navbar-collapse justify-content-around"
+            id="navbarNav"
+          >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/"
+                  style={{ color: "white" }}
+                >
                   {t("Home")}
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="about">
+                <Link
+                  className="nav-link"
+                  to="about"
+                  style={{ color: "white" }}
+                >
                   {t("About Us")}
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="research">
+                <NavLink
+                  className={`nav-link `}
+                  to="research"
+                  style={{ color: "white" }}
+                >
                   {t("Research")}
-                </a>
+                </NavLink>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="products">
+                <Link
+                  className="nav-link"
+                  to="products"
+                  style={{ color: "white" }}
+                >
                   {t("Products")}
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="contact">
+                <Link
+                  className="nav-link"
+                  to="contact"
+                  style={{ color: "white" }}
+                >
                   {t("Contact us")}
-                </a>
+                </Link>
               </li>
             </ul>
+            <button
+              className={`btn btn-link ${styles.themeToggle}`}
+              onClick={toggleTheme}
+            >
+              {theme === "light" ? (
+                <Brightness4 fontSize="small" />
+              ) : (
+                <Brightness7 fontSize="small" />
+              )}
+            </button>
           </div>
         </div>
       </nav>

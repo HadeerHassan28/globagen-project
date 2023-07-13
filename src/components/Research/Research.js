@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "../Research/Research.module.css";
 import { useTranslation } from "react-i18next";
+import { conTheme } from "../../Context/Context";
 const Research = () => {
   const { t } = useTranslation();
+  let { themeConfig, isTheme } = useContext(conTheme);
+  const theme = themeConfig.palette.mode;
   const parag = [
     {
       id: 1,
@@ -52,20 +55,39 @@ const Research = () => {
         "Together, we can unlock the potential of molecular biology and drive innovation in various fields."
       ),
     },
-    {
-      id: 9,
-      p: t("Welcome to the world of Globagen!"),
-    },
+    //  {
+    //    id: 9,
+    //    p: t("Welcome to the world of Globagen!"),
+    //  },
   ];
 
   return (
-    <div className={`contanier`}>
-      <h1 className={`ms-3`}>Research</h1>
+    <div
+      className={`container`}
+      style={{
+        backgroundColor: isTheme === true ? "black" : "white",
+      }}
+    >
+      <h1
+        className={`ms-3 d-flex justify-content-center my-4`}
+        style={{ color: isTheme === true ? "white" : "#071848" }}
+      >
+        {t("Research and development")}
+      </h1>
       {parag.map((ele) => (
-        <div className={`ms-3`}>
+        <div
+          className={`ms-3 d-flex justify-content-sm-start align-content-start flex-wrap blockquote text-sm-left`}
+          style={{ color: isTheme === true ? "white" : "#071848" }}
+        >
           <p key={ele.id}>{ele.p}</p>
         </div>
       ))}
+      <div
+        className="container d-flex justify-content-center mt-3 display-4 my-4"
+        style={{ color: isTheme === true ? "white" : "#071848" }}
+      >
+        <p>{t("Welcome to the world of Globagen!")}</p>
+      </div>
     </div>
   );
 };
