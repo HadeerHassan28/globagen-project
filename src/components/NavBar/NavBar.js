@@ -1,34 +1,118 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import * as React from "react";
+import { useContext } from "react";
+import styles from "./Navbar.module.css";
+import logo from "../../assets/logo.png";
+import { useTranslation } from "react-i18next";
+import { Brightness4, Brightness7 } from "@mui/icons-material";
+import { conTheme } from "../../Context/Context";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
-function BasicExample() {
+const NavBar = () => {
+  const { t } = useTranslation();
+  let { toggleTheme, themeConfig } = useContext(conTheme);
+  const theme = themeConfig.palette.mode;
+  //   const location = useLocation();
+  // const isActiveLink = (path) => {
+  //   return location.pathname === path;
+  // };
+  //   const activeLinkStyle = {
+  //     color: " #09bed0",
+  //   };
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
-}
+    <>
+      <nav
+        className={`navbar navbar-expand-lg `}
+        style={{ backgroundColor: "#071848" }}
+      >
+        <div className="container-fluid ">
+          <Link className="navbar-brand" href="/">
+            <img
+              src={logo}
+              alt="Logo"
+              width="110"
+              height="24"
+              className="d-inline-block align-text-top"
+            />
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div
+            className="collapse navbar-collapse justify-content-around"
+            id="navbarNav"
+          >
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/"
+                  style={{ color: "white" }}
+                >
+                  {t("Home")}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="about"
+                  style={{ color: "white" }}
+                >
+                  {t("About Us")}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className={`nav-link `}
+                  to="research"
+                  style={{ color: "white" }}
+                >
+                  {t("Research")}
+                </NavLink>
+              </li>
 
-export default BasicExample;
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="products"
+                  style={{ color: "white" }}
+                >
+                  {t("Products")}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="contact"
+                  style={{ color: "white" }}
+                >
+                  {t("Contact us")}
+                </Link>
+              </li>
+            </ul>
+            <button
+              className={`btn btn-link ${styles.themeToggle}`}
+              onClick={toggleTheme}
+            >
+              {theme === "light" ? (
+                <Brightness4 fontSize="small" />
+              ) : (
+                <Brightness7 fontSize="small" />
+              )}
+            </button>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
+};
+
+export default NavBar;
