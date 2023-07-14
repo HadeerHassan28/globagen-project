@@ -4,8 +4,7 @@ import { useTranslation } from "react-i18next";
 import { conTheme } from "../../Context/Context";
 const Research = () => {
   const { t } = useTranslation();
-  let { themeConfig, isTheme } = useContext(conTheme);
-  const theme = themeConfig.palette.mode;
+  let { isTheme } = useContext(conTheme);
   const parag = [
     {
       id: 1,
