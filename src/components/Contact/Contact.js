@@ -1,35 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { conTheme } from "../../Context/Context";
 import NearMeOutlinedIcon from "@mui/icons-material/NearMeOutlined";
 import { BsTelephoneOutbound, BsEnvelope } from "react-icons/bs";
 import { AiOutlineWhatsApp } from "react-icons/ai";
+import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
+//import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
 const Contact = () => {
   const { t } = useTranslation();
   let { isTheme } = useContext(conTheme);
-  // const address =
-  //   "64-62 Mecca, Sheraton Al Matar, El Nozha, Cairo Governorate 4471206";
+  // const { isLoaded } = useLoadScript({
+  //   googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+  //   // googleMapsApiKey: "AIzaSyD0ObDD1_qe4RuAlhc-sX_NoDK77x2OQnE",
+  // });
+  // const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
 
   const contactInfo = [
     {
       id: 1,
-      title: "Shipping & Customs Clearance Department",
+      title: t("Shipping & Customs Clearance Department"),
       name: t("Mr. Mohamed Fathy"),
       number: "01001539990",
       email: "m.fathy@globagene.com",
     },
     {
       id: 2,
-      title: "Scientific Research Department",
+      title: t("Scientific Research Department"),
       name: t("Eng. Nora Ragheb"),
       number: "01067652075",
       email: "nora.ragheb@globagene.com",
     },
     {
       id: 3,
-      title: "General Requirement",
+      title: t("General Requirement"),
       number: "01033569793",
       email: "info@globagene.com",
     },
@@ -37,13 +42,17 @@ const Contact = () => {
   const handleEmailClick = (email) => {
     window.location.href = `mailto:${email}`;
   };
-  // const getMapImageSrc = (address) => {
-  //   const apiKey = "AIzaSyA67i2eU-V4PS5QdKS-wOaLB7WyMmAR7ZQ";
-  //   const encodedAddress = encodeURIComponent(address);
-  //   const imageUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${encodedAddress}&zoom=14&size=600x300&key=${apiKey}`;
-  //   return imageUrl;
-  // };
-  // const mapImageSrc = getMapImageSrc(address);
+
+  // if (!isLoaded)
+  //   return (
+  //     <div
+  //       className="container d-flex justify-content-center align-items-center"
+  //       style={{ color: isTheme === true ? "white" : "#071848" }}
+  //     >
+  //       Loading...
+  //     </div>
+  //   );
+
   return (
     <div
       className={`container`}
@@ -138,8 +147,33 @@ const Contact = () => {
           )}
         </div>
       ))}
-      <div className="container d-flex justify-content-center align-items-center">
-        {/* <img src={} alt="Google Map" /> */}
+      <div
+        className="container d-flex justify-content-center align-items-center mb-5"
+        id="map"
+      >
+        {/* <GoogleMap
+          zoom={10}
+          center={center}
+          mapContainerClassName="mapContanier"
+        >
+          <Marker position={center} />
+        </GoogleMap> */}
+        <Link target="_blank" to={`https://goo.gl/maps/CxngUs87MbuRaWFn8`}>
+          <CiLocationOn
+            size={25}
+            className="me-2"
+            style={{ color: isTheme === true ? "white" : "#071848" }}
+          />
+
+          <span
+            className="h5 mb-5"
+            style={{ color: isTheme === true ? "white" : "#071848" }}
+          >
+            {t(
+              "114 Sakr Qurish Budling Behind Al Tabari School, Third Floor, No. 15. Sheraton, Cairo, Egypt."
+            )}
+          </span>
+        </Link>
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 import * as React from "react";
 import { useContext } from "react";
-import styles from "./Navbar.module.css";
+import styles from "../NavBar/NavBar.module.css";
 import logo from "../../assets/logo.png";
 import { useTranslation } from "react-i18next";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 import { conTheme } from "../../Context/Context";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const { t } = useTranslation();
