@@ -167,7 +167,10 @@ const Contact = () => {
 
           <span
             className="h5 mb-5"
-            style={{ color: isTheme === true ? "white" : "#071848" }}
+            style={{
+              marginLeft: "0.5rem",
+              color: isTheme ? "black" : "#071848",
+            }}
           >
             {t(
               "114 Sakr Qurish Budling Behind Al Tabari School, Third Floor, No. 15. Sheraton, Cairo, Egypt."
