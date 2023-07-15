@@ -1,6 +1,10 @@
 import * as React from "react";
 import { useContext } from "react";
+<<<<<<< HEAD
 import styles from "../NavBar/NavBar.module.css";
+=======
+import styles from "./NavBar.module.css";
+>>>>>>> c105064600361768284e3aaf98438a866f1f8094
 import logo from "../../assets/logo.png";
 import { useTranslation } from "react-i18next";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
@@ -24,16 +28,11 @@ const NavBar = () => {
         className={`navbar navbar-expand-lg `}
         style={{ backgroundColor: "#071848" }}
       >
-        <div className="container-fluid ">
-          <Link className="navbar-brand" href="/">
-            <img
-              src={logo}
-              alt="Logo"
-              width="110"
-              height="24"
-              className="d-inline-block align-text-top"
-            />
+        <div className="container">
+          <Link className="navbar-brand " href="/">
+            <img src={logo} alt="Logo" width="140" height="50" />
           </Link>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -98,17 +97,17 @@ const NavBar = () => {
                 </Link>
               </li>
             </ul>
-            <button
-              className={`btn btn-link ${styles.themeToggle}`}
-              onClick={toggleTheme}
-            >
-              {theme === "light" ? (
-                <Brightness4 fontSize="small" />
-              ) : (
-                <Brightness7 fontSize="small" />
-              )}
-            </button>
           </div>
+          <button
+            className={`btn btn-link  d-flex flex-row-reverse ${styles.themeToggle}`}
+            onClick={toggleTheme}
+          >
+            {theme === "light" ? (
+              <Brightness4 fontSize="small" />
+            ) : (
+              <Brightness7 fontSize="small" />
+            )}
+          </button>
         </div>
       </nav>
     </>
