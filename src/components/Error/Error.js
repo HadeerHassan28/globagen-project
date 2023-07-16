@@ -18,10 +18,10 @@ export default function Error() {
           <Grid xs={6}>
             <Typography variant="h1">404</Typography>
             <Typography variant="h6">
-              The page you’re looking for doesn’t exist.
+              The page you're looking for doesn't exist.
             </Typography>
             <Button variant="contained" component={Link} to="/">
-              Back Home
+              <span style={{ color: "black" }}> Back Home</span>
             </Button>
           </Grid>
           <Grid xs={6}>

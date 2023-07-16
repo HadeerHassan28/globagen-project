@@ -1,18 +1,14 @@
 import * as React from "react";
 import { useContext } from "react";
-<<<<<<< HEAD
 import styles from "../NavBar/NavBar.module.css";
-=======
-import styles from "./NavBar.module.css";
->>>>>>> c105064600361768284e3aaf98438a866f1f8094
 import logo from "../../assets/logo.png";
 import { useTranslation } from "react-i18next";
-import { Brightness4, Brightness7 } from "@mui/icons-material";
+import { Brightness4, Brightness7, Translate } from "@mui/icons-material";
 import { conTheme } from "../../Context/Context";
 import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   let { toggleTheme, themeConfig } = useContext(conTheme);
   const theme = themeConfig.palette.mode;
   //   const location = useLocation();
@@ -22,6 +18,11 @@ const NavBar = () => {
   //   const activeLinkStyle = {
   //     color: " #09bed0",
   //   };
+  const handleTranslate = () => {
+    const currentLanguage = i18n.language; // Get the current language code
+    const newLanguage = currentLanguage === "en" ? "ar" : "en"; // Switch language
+    i18n.changeLanguage(newLanguage); // Update the language
+  };
   return (
     <>
       <nav
@@ -81,7 +82,7 @@ const NavBar = () => {
               <li className="nav-item">
                 <Link
                   className="nav-link"
-                  to="products"
+                  to="product"
                   style={{ color: "white" }}
                 >
                   {t("Products")}
@@ -99,7 +100,13 @@ const NavBar = () => {
             </ul>
           </div>
           <button
-            className={`btn btn-link  d-flex flex-row-reverse ${styles.themeToggle}`}
+            className={`btn btn-link  ${styles.themeToggle}`}
+            onClick={handleTranslate}
+          >
+            <Translate />
+          </button>
+          <button
+            className={`btn btn-link   ${styles.themeToggle}`}
             onClick={toggleTheme}
           >
             {theme === "light" ? (

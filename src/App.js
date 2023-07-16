@@ -6,6 +6,7 @@ import Contact from "./components/Contact/Contact";
 import Error from "./components/Error/Error";
 import Home from "./components/Home/Home";
 import Layout from "./components/Layout/Layout";
+import Product from "./components/Product/Product";
 import Research from "./components/Research/Research";
 import ContextTheme from "./Context/Context";
 
@@ -31,6 +32,10 @@ function App() {
         {
           path: "contact",
           element: <Contact />,
+        },
+        {
+          path: "product",
+          element: <Product />,
         },
       ],
     },
