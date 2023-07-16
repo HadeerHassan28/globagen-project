@@ -123,7 +123,10 @@ export default function App() {
               {/* <p>
                 <MDBIcon icon="print" className="me-3" /> +20 1033569793
               </p> */}
-              <Link href="" className="me-4 text-reset">
+              <Link
+                to={`https://www.facebook.com/profile.php?id=100078919334060`}
+                className="me-4 text-reset"
+              >
                 <MDBIcon fab icon="facebook-f" />
               </Link>
               <Link

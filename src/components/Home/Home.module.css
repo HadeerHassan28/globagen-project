@@ -1,4 +1,32 @@
-.Home {
-  color: red;
-  font-size: larger;
+homeContainer {
+  position: relative;
+}
+
+.imgLanding {
+  width: 100%;
+  height: auto;
+}
+
+.textContainer {
+  position: absolute;
+  top: 15em;
+  left: 22em;
+  transform: translate(-90%, -50%);
+  text-align: center;
+  color: white;
+}
+.more {
+  width: 40% !important;
+  font-size: 1rem !important;
+  color: #071848 !important ;
+  border: 0.25em solid #071848 !important;
+  border-radius: 30% !important;
+}
+.more:hover {
+  background: #fff !important;
+}
+.bttn {
+  font-size: 1rem !important;
+  background-color: #071848 !important;
+  color: white !important;
 }
