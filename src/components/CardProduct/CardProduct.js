@@ -1,34 +1,31 @@
 import * as React from "react";
 import { useContext } from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import styles from "../CardProduct/CardProduct.module.css";
 import { useTranslation } from "react-i18next";
 import { conTheme } from "../../Context/Context";
+import { Link } from "react-router-dom";
 export default function MultiActionAreaCard({ name, description, img }) {
   const { t } = useTranslation();
   let { isTheme } = useContext(conTheme);
-  console.log(name);
+  //console.log(name);
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia component="img" height="90" image={img} alt={name} />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {name}
-          </Typography>
-          <Typography variant="body2" color="#071848">
-            {description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          {t("More Info")}
-        </Button>
-      </CardActions>
-    </Card>
+    <div className={`col-md-6 mb-4`}>
+      <div className={`card ${styles.cardWidth}`}>
+        <img className="card-img-top" src={img} alt={name} />
+        <div className="card-body d-flex">
+          <h5 className="card-title">{name}</h5>
+          <p className="card-text">{description}</p>
+          <Link to="/" className="btn btn-primary">
+            Go somewhere
+          </Link>
+          <Link
+            to={`https://wa.me/+${"01067652075"}`}
+            className="btn btn-primary"
+          >
+            {t("Inquiry Request")}
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }

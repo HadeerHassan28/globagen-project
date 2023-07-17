@@ -7,7 +7,7 @@ import MultiActionAreaCard from "../CardProduct/CardProduct";
 const Product = () => {
   const { t } = useTranslation();
   let { isTheme, data, error, loading } = useContext(conTheme);
-  console.log("product name", data.attributes);
+  //console.log("product name", data);
   if (loading)
     return (
       <p
@@ -40,18 +40,21 @@ const Product = () => {
       >
         {t("Radiation Protection Product")}
       </h1>
-      {data.data.map((ele) => (
-        <div
-          key={ele.id}
-          className={`container mb-5 d-flex justify-content-sm-around`}
-        >
-          <MultiActionAreaCard
-            name={ele.name}
-            description={ele.description}
-            img={ele.img}
-          />
-        </div>
-      ))}
+      {data.data.map((ele) => {
+        //console.log("Product Data:", ele);
+        return (
+          <div
+            key={ele.id}
+            className={`container mb-5 d-flex justify-content-sm-around`}
+          >
+            <MultiActionAreaCard
+              name={ele.attributes.name}
+              description={ele.attributes.description}
+              img={ele.attributes.img}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };
