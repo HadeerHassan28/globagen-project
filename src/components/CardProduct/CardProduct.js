@@ -10,18 +10,36 @@ export default function MultiActionAreaCard({ name, description, image }) {
   let { isTheme } = useContext(conTheme);
   //console.log(name);
   return (
-    <div class="card" style={{ width: "18rem" }}>
+    <div
+      class="card"
+      style={{
+        width: "18rem",
+        backgroundColor: isTheme === true ? "black" : "white",
+        border: isTheme === true ? "1px solid #0FEF96" : "",
+      }}
+    >
       <img
         src={`https://globagen.onrender.com${image}`}
         class="card-img-top"
-        alt="..."
+        alt={name}
       />
       <div class="card-body">
-        <h5 class="card-title">{name}</h5>
-        <p class="card-text">{description}</p>
+        <h5
+          class="card-title"
+          style={{ color: isTheme === true ? "white" : "#071848" }}
+        >
+          {name}
+        </h5>
+        <p
+          class="card-text"
+          style={{ color: isTheme === true ? "white" : "#071848" }}
+        >
+          {description}
+        </p>
         <Link
           to={`https://wa.me/+${"01067652075"}`}
-          className="btn btn-primary"
+          className={`btn ${styles.btnColor}`}
+          style={{ border: isTheme === true ? "1px solid #0FEF96" : "" }}
         >
           {t("Inquiry Request")}
         </Link>

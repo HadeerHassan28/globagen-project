@@ -15,15 +15,25 @@ const ContextTheme = (props) => {
     error: null,
   };
   const [state, dispatch] = useReducer(Reducer, initState);
+  const itemsPerPage = 2;
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
 
   const [{ data, loading, error }] = useAxios(
     "https://globagen.onrender.com/api/products?populate=*"
   );
-  //console.log(data);
-
+  console.log(data);
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const subset = data.slice(startIndex, endIndex);
   useEffect(() => {
     dispatch({ type: GET_PRO, payload: data });
+    setTotalPages(Math.ceil(data.length / itemsPerPage));
   }, []);
+
+  const handlePageChange = (selectedPage) => {
+    setCurrentPage(selectedPage.selected);
+  };
 
   const toggleTheme = () => {
     setIsTheme((prevTheme) => !prevTheme);
@@ -42,6 +52,10 @@ const ContextTheme = (props) => {
     error: error,
     loading: loading,
     state: state,
+    subset: subset,
+    handlePageChange: handlePageChange,
+    totalPages: totalPages,
+    currentPage: currentPage,
   };
 
   return (

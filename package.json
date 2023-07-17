@@ -28,6 +28,7 @@
     "react-hot-toast": "^2.4.1",
     "react-i18next": "^13.0.2",
     "react-icons": "^4.10.1",
+    "react-paginate": "^8.2.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.11",
     "web-vitals": "^2.1.4"

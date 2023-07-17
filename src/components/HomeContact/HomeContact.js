@@ -98,10 +98,7 @@ const HomeContact = () => {
           <button
             type="submit"
             className={`btn d-flex ms-auto ${styles.bttn} d-flex justify-content-sm-center mb-4 px-5`}
-            style={{
-              borderColor: isTheme ? "#0FEF96" : "",
-              borderWidth: isTheme ? "1rem" : "",
-            }}
+            style={{ border: isTheme === true ? "1px solid #0FEF96" : "" }}
           >
             {t("Send")}
           </button>
