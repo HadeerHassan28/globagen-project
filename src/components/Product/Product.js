@@ -6,25 +6,26 @@ import MultiActionAreaCard from "../CardProduct/CardProduct";
 
 const Product = () => {
   const { t } = useTranslation();
-  let { isTheme } = useContext(conTheme);
-  const product = [
-    {
-      id: 1,
-      title: t("Isolation X-ray room & CT room"),
-      describe: t(
-        "Supply & Installation Lead thickness 1mm, 1.5mm & 2mmPb, •	Supply & Installation Cladding walls by MDF & PVC, Supply & Installation Doors & Windows with Lead Glass. (All Sizes Available), Supply & Installation Mobile Lead Barrier with Lead Glass. (All Sizes Available)"
-      ),
-      img: "src/assets/product/pro1.jpg",
-    },
-    {
-      id: 2,
-      title: t("Isolation X-ray room & CT room"),
-      describe: t(
-        "Supply & Installation Lead thickness 1mm, 1.5mm & 2mmPb, •	Supply & Installation Cladding walls by MDF & PVC, Supply & Installation Doors & Windows with Lead Glass. (All Sizes Available), Supply & Installation Mobile Lead Barrier with Lead Glass. (All Sizes Available)"
-      ),
-      img: "src/assets/product/pro2.jpg",
-    },
-  ];
+  let { isTheme, data, error, loading } = useContext(conTheme);
+  console.log("product name", data.attributes);
+  if (loading)
+    return (
+      <p
+        className={`ms-3 d-flex justify-content-center my-4`}
+        style={{ color: isTheme === true ? "white" : "#071848" }}
+      >
+        Loading...
+      </p>
+    );
+  if (error)
+    return (
+      <p
+        className={`ms-3 d-flex justify-content-center my-4`}
+        style={{ color: isTheme === true ? "white" : "#071848" }}
+      >
+        Error!
+      </p>
+    );
 
   return (
     <div
@@ -39,14 +40,14 @@ const Product = () => {
       >
         {t("Radiation Protection Product")}
       </h1>
-      {product.map((ele) => (
+      {data.data.map((ele) => (
         <div
           key={ele.id}
           className={`container mb-5 d-flex justify-content-sm-around`}
         >
           <MultiActionAreaCard
-            title={ele.title}
-            describe={ele.describe}
+            name={ele.name}
+            description={ele.description}
             img={ele.img}
           />
         </div>

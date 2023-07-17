@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { conTheme } from "../../Context/Context";
 import NearMeOutlinedIcon from "@mui/icons-material/NearMeOutlined";
@@ -6,16 +6,10 @@ import { BsTelephoneOutbound, BsEnvelope } from "react-icons/bs";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
-//import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
 const Contact = () => {
   const { t } = useTranslation();
   let { isTheme } = useContext(conTheme);
-  // const { isLoaded } = useLoadScript({
-  //   googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-  //   // googleMapsApiKey: "AIzaSyD0ObDD1_qe4RuAlhc-sX_NoDK77x2OQnE",
-  // });
-  // const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
 
   const contactInfo = [
     {
@@ -42,16 +36,6 @@ const Contact = () => {
   const handleEmailClick = (email) => {
     window.location.href = `mailto:${email}`;
   };
-
-  // if (!isLoaded)
-  //   return (
-  //     <div
-  //       className="container d-flex justify-content-center align-items-center"
-  //       style={{ color: isTheme === true ? "white" : "#071848" }}
-  //     >
-  //       Loading...
-  //     </div>
-  //   );
 
   return (
     <div
@@ -151,13 +135,6 @@ const Contact = () => {
         className="container d-flex justify-content-center align-items-center mb-5"
         id="map"
       >
-        {/* <GoogleMap
-          zoom={10}
-          center={center}
-          mapContainerClassName="mapContanier"
-        >
-          <Marker position={center} />
-        </GoogleMap> */}
         <Link target="_blank" to={`https://goo.gl/maps/CxngUs87MbuRaWFn8`}>
           <CiLocationOn
             size={25}

@@ -7,20 +7,20 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { conTheme } from "../../Context/Context";
-export default function MultiActionAreaCard({ title, describe, img }) {
+export default function MultiActionAreaCard({ name, description, img }) {
   const { t } = useTranslation();
   let { isTheme } = useContext(conTheme);
-
+  console.log(name);
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
-        <CardMedia component="img" height="90" image={img} alt={title} />
+        <CardMedia component="img" height="90" image={img} alt={name} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {title}
+            {name}
           </Typography>
           <Typography variant="body2" color="#071848">
-            {describe}
+            {description}
           </Typography>
         </CardContent>
       </CardActionArea>
