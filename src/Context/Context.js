@@ -17,7 +17,7 @@ const ContextTheme = (props) => {
   const [state, dispatch] = useReducer(Reducer, initState);
 
   const [{ data, loading, error }] = useAxios(
-    "https://globagen.onrender.com/api/products"
+    "https://globagen.onrender.com/api/products?populate=*"
   );
   //console.log(data);
 

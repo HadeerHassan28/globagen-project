@@ -50,7 +50,7 @@ const Product = () => {
             <MultiActionAreaCard
               name={ele.attributes.name}
               description={ele.attributes.description}
-              img={ele.attributes.img}
+              image={ele.attributes.image.data.attributes.url}
             />
           </div>
         );
