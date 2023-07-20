@@ -1,3 +1,5 @@
+npm i ====> in the begining
+
 ## 1- run json-server:
 
 json-server data.json --port 3001
