@@ -4,39 +4,31 @@ import { useTranslation } from "react-i18next";
 import { conTheme } from "../../Context/Context";
 import MultiActionAreaCard from "../CardProduct/CardProduct";
 import ReactPaginate from "react-paginate";
+
 const Product = () => {
   const { t } = useTranslation();
 
-  let {
-    isTheme,
-    data,
-    error,
-    loading,
-    handlePageChange,
-    subset,
-    totalPages,
-    currentPage,
-  } = useContext(conTheme);
-  //console.log("product name", data);
+  let { isTheme, totalPages, handlePageChange, subset, currentPage } =
+    useContext(conTheme);
 
-  if (loading)
-    return (
-      <p
-        className={`ms-3 d-flex justify-content-center my-4`}
-        style={{ color: isTheme === true ? "white" : "#071848" }}
-      >
-        Loading...
-      </p>
-    );
-  if (error)
-    return (
-      <p
-        className={`ms-3 d-flex justify-content-center my-4`}
-        style={{ color: isTheme === true ? "white" : "#071848" }}
-      >
-        Error!
-      </p>
-    );
+  // if (loading)
+  //   return (
+  //     <p
+  //       className={`ms-3 d-flex justify-content-center my-4`}
+  //       style={{ color: isTheme === true ? "white" : "#071848" }}
+  //     >
+  //       Loading...
+  //     </p>
+  //   );
+  // if (error)
+  //   return (
+  //     <p
+  //       className={`ms-3 d-flex justify-content-center my-4`}
+  //       style={{ color: isTheme === true ? "white" : "#071848" }}
+  //     >
+  //       Error!
+  //     </p>
+  //   );
 
   return (
     <div
@@ -52,7 +44,7 @@ const Product = () => {
         {t("Radiation Protection Product")}
       </h1>
       <div className="row">
-        {data.data.map((ele) => {
+        {subset.map((ele) => {
           //console.log("Product Data:", ele);
           return (
             <div
@@ -72,11 +64,16 @@ const Product = () => {
         {subset.map((item) => (
           <div key={item.id}>{item.title}</div>
         ))}
-        <ReactPaginate
-          pageCount={totalPages}
-          onPageChange={handlePageChange}
-          forcePage={currentPage}
-        />
+        <div
+          className={`d-flex justify-content-cente ${styles.paginationContainer}  `}
+        >
+          <ReactPaginate
+            className={`${styles.page}`}
+            pageCount={totalPages}
+            onPageChange={handlePageChange}
+            forcePage={currentPage}
+          />
+        </div>
       </div>
     </div>
   );

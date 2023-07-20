@@ -6,7 +6,7 @@ import { BsTelephoneOutbound, BsEnvelope } from "react-icons/bs";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router-dom";
-
+import { FaFacebookF } from "react-icons/fa";
 const Contact = () => {
   const { t } = useTranslation();
   let { isTheme } = useContext(conTheme);
@@ -17,6 +17,7 @@ const Contact = () => {
       title: t("Shipping & Customs Clearance Department"),
       name: t("Mr. Mohamed Fathy"),
       number: "01001539990",
+      fb: "https://www.facebook.com/Globagen",
       email: "m.fathy@globagene.com",
     },
     {
@@ -24,6 +25,7 @@ const Contact = () => {
       title: t("Scientific Research Department"),
       name: t("Eng. Nora Ragheb"),
       number: "01067652075",
+      fb: "https://www.facebook.com/profile.php?id=100078919334060",
       email: "nora.ragheb@globagene.com",
     },
     {
@@ -99,6 +101,18 @@ const Contact = () => {
                 {ele.number}
               </span>
             </Link>
+
+            {ele.fb && (
+              <div className=" d-flex justify-content-sm-center align-items-sm-center flex-column mt-2">
+                <Link to={ele.fb} className="me-4 text-reset">
+                  <FaFacebookF
+                    target="_blank"
+                    style={{ color: isTheme === true ? "white" : "#071848" }}
+                  />
+                  <span>{t("FaceBook")}</span>
+                </Link>
+              </div>
+            )}
             <div
               className=" d-flex align-items-center   mt-2 mb-3"
               onClick={() => handleEmailClick(ele.email)}

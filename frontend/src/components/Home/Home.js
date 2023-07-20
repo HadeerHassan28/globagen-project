@@ -7,6 +7,7 @@ import test from "../../assets/home/test.png";
 
 import HomeContact from "../HomeContact/HomeContact";
 import HomeGoogleMap from "../HomeGoogleMap/HomeGoogleMap";
+import HomeProduct from "../HomeProduct/HomeProduct";
 const Home = () => {
   const { t } = useTranslation();
   let { isTheme } = useContext(conTheme);
@@ -34,14 +35,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* Products */}
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12 ">
-            <h1 className={`h1 ${styles.h1}`}>{t("Products")}</h1>
-          </div>
-        </div>
-      </div>
+
+      <HomeProduct />
 
       <HomeContact />
 

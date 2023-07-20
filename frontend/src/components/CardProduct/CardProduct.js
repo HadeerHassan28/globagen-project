@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { conTheme } from "../../Context/Context";
 import { Link } from "react-router-dom";
 
-export default function MultiActionAreaCard({ name, description, image }) {
+export default function MultiActionAreaCard({ name, description, image, id }) {
   const { t } = useTranslation();
   let { isTheme } = useContext(conTheme);
   //console.log(name);
@@ -13,7 +13,7 @@ export default function MultiActionAreaCard({ name, description, image }) {
     <div
       class="card"
       style={{
-        width: "18rem",
+        width: "25rem",
         backgroundColor: isTheme === true ? "black" : "white",
         border: isTheme === true ? "1px solid #0FEF96" : "",
       }}
@@ -42,6 +42,13 @@ export default function MultiActionAreaCard({ name, description, image }) {
           style={{ border: isTheme === true ? "1px solid #0FEF96" : "" }}
         >
           {t("Inquiry Request")}
+        </Link>
+        <Link
+          to={`/product/${id}`}
+          className={`btn ${styles.btnColor} mx-3`}
+          style={{ border: isTheme === true ? "1px solid #0FEF96" : "" }}
+        >
+          {t("More Info")}
         </Link>
       </div>
     </div>

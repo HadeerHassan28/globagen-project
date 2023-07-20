@@ -1,9 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styles from "../HomeContact/HomeContact.module.css";
 import { toast } from "react-hot-toast";
 import emailjs from "@emailjs/browser";
 import { conTheme } from "../../Context/Context";
 import { useTranslation } from "react-i18next";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const HomeContact = () => {
   const { t } = useTranslation();
   let { isTheme } = useContext(conTheme);
@@ -50,9 +52,21 @@ const HomeContact = () => {
       }
     );
   }
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      delay: 200,
+      duration: 600,
+      easing: "ease",
+      //   once: true,
+      mirror: true,
+      anchorPlacement: "center-center",
+    });
+  });
+
   return (
     <div className="container ">
-      <div className="row">
+      <div className="row" data-aos="fade-up">
         <form className="col-sm-12 " onSubmit={sendEmail}>
           <h1 className={`h1 ${styles.h1} d-flex justify-content-sm-center`}>
             {t("Contact us")}

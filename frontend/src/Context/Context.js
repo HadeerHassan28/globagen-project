@@ -19,18 +19,44 @@ const ContextTheme = (props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
 
-  const [{ data, loading, error }] = useAxios(
-    "https://globagen.onrender.com/api/products?populate=*"
-  );
+  // const [{ data, loading, error }] = useAxios(
+  //   "https://globagen.onrender.com/api/products?populate=*"
+  // );
+  const [{ data, loading, error }] = useAxios("http://localhost:3001/data");
   console.log(data);
+
+  useEffect(() => {
+    if (data) {
+      dispatch({ type: GET_PRO, payload: data });
+      setTotalPages(Math.ceil(data.length / itemsPerPage));
+    }
+  }, []);
+  if (loading) {
+    return (
+      <p
+        className={`ms-3 d-flex justify-content-center my-4`}
+        style={{ color: isTheme === true ? "white" : "#071848" }}
+      >
+        Loading...
+      </p>
+    );
+  }
+
+  if (error) {
+    return (
+      <p
+        className={`ms-3 d-flex justify-content-center my-4`}
+        style={{ color: isTheme === true ? "white" : "#071848" }}
+      >
+        Error!
+      </p>
+    );
+  }
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const subset = data.slice(startIndex, endIndex);
-  useEffect(() => {
-    dispatch({ type: GET_PRO, payload: data });
-    setTotalPages(Math.ceil(data.length / itemsPerPage));
-  }, []);
-
+  console.log(subset);
+  subset.map((ele) => console.log(ele.id));
   const handlePageChange = (selectedPage) => {
     setCurrentPage(selectedPage.selected);
   };
@@ -49,10 +75,9 @@ const ContextTheme = (props) => {
     toggleTheme: toggleTheme,
     themeConfig: themeConfig,
     data: data,
-    error: error,
-    loading: loading,
     state: state,
     subset: subset,
+
     handlePageChange: handlePageChange,
     totalPages: totalPages,
     currentPage: currentPage,

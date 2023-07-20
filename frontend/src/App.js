@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 import "./App.css";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Error from "./components/Error/Error";
 import Home from "./components/Home/Home";
 import Layout from "./components/Layout/Layout";
+import OneProduct from "./components/oneProduct/oneProduct";
 import Product from "./components/Product/Product";
 import Research from "./components/Research/Research";
 import ContextTheme from "./Context/Context";
@@ -36,6 +37,10 @@ function App() {
         {
           path: "product",
           element: <Product />,
+        },
+        {
+          path: "product/:id",
+          element: <OneProduct />,
         },
       ],
     },

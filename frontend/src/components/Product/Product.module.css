@@ -1,0 +1,27 @@
+.page ul {
+  list-style: none;
+}
+
+.paginationContainer li {
+  margin: 0 auto;
+  color: white;
+  /* display: flex; */
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  display: inline-flex;
+}
+
+.page li a {
+  text-decoration: none;
+  color: white;
+  background-color: #071848;
+  padding: 0.02em 1em;
+  border: 0.3em solid #071848;
+  border-radius: 1em;
+}
+
+.page li.hover a {
+  background-color: white;
+  color: #071848;
+}
