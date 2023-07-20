@@ -109,7 +109,14 @@ const Contact = () => {
                     target="_blank"
                     style={{ color: isTheme === true ? "white" : "#071848" }}
                   />
-                  <span>{t("FaceBook")}</span>
+                  <span
+                    style={{
+                      marginLeft: "0.5rem",
+                      color: isTheme ? "black" : "#071848",
+                    }}
+                  >
+                    {t("FaceBook")}
+                  </span>
                 </Link>
               </div>
             )}

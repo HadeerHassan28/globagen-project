@@ -1,20 +1,37 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 
-i18n.use(initReactI18next).init({
-  fallbackLng: "en",
-  lng: "en",
-  resources: {
-    en: {
-      translations: require("./locales/en/translations.json"),
+i18n
+  .use(initReactI18next)
+  .use(LanguageDetector)
+  .init({
+    fallbackLng: "en",
+    // lng: "en",
+    resources: {
+      en: {
+        translations: require("./locales/en/translations.json"),
+        dir: "ltr",
+      },
+      ar: {
+        translations: require("./locales/ar/translations.json"),
+        dir: "rtl",
+      },
     },
-    ar: {
-      translations: require("./locales/ar/translations.json"),
+    ns: ["translations"],
+    defaultNS: "translations",
+    detection: {
+      order: [
+        "cookie",
+        "htmlTag",
+        "localStorage",
+        "path",
+        "subdomain",
+        "navigator",
+      ],
+      caches: ["cookie"],
     },
-  },
-  ns: ["translations"],
-  defaultNS: "translations",
-});
+  });
 
 i18n.languages = ["en", "ar"];
 

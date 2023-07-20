@@ -21,6 +21,7 @@ const NavBar = () => {
   const handleTranslate = () => {
     const currentLanguage = i18n.language; // Get the current language code
     const newLanguage = currentLanguage === "en" ? "ar" : "en"; // Switch language
+
     i18n.changeLanguage(newLanguage); // Update the language
   };
   return (

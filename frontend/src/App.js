@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
@@ -10,8 +10,18 @@ import OneProduct from "./components/oneProduct/oneProduct";
 import Product from "./components/Product/Product";
 import Research from "./components/Research/Research";
 import ContextTheme from "./Context/Context";
-
+import i18n from "i18next";
+import cookie from "js-cookie";
 function App() {
+  // const currentLang = Language.find((l) => l.code === currentLangCurrenCode);
+
+  // useEffect(() => {
+  //   document.body.dir = currentLang.dir || "ltr";
+  // }, [currentLang.dir]);
+  const currentLangCurrenCode = cookie.get("i18next") || "en";
+  useEffect(() => {
+    document.documentElement.dir = i18n.languages === "ar" ? "rtl" : "ltr";
+  }, [currentLangCurrenCode]);
   let routes = createBrowserRouter([
     {
       path: "",
