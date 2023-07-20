@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { useEffect } from "react";
+=======
+>>>>>>> 1f04d51 (fix header responseve issue & cardProduct)
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import About from "./components/About/About";

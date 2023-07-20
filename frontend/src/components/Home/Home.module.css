@@ -1,20 +1,20 @@
-.homeContainer {
+/* .homeContainer {
   position: relative;
 }
 
 .imgLanding {
   width: 100%;
   height: auto;
-}
+} */
 
-.textContainer {
+/* .textContainer {
   position: absolute;
   top: 15em;
   left: 22em;
   transform: translate(-90%, -50%);
   text-align: center;
   color: white;
-}
+} */
 .more {
   width: 40% !important;
   font-size: 1rem !important;

@@ -33,10 +33,10 @@ const HomeProduct = () => {
   }
 
   return (
-    <div className="container" data-aos="fade-up">
+    <div className="container mb-5" data-aos="fade-up">
       <div className="row">
         <div className="col-sm-12 ">
-          <h1 className={`h1 ${styles.h1}`}>{t("Products")}</h1>
+          <h1 className={`h1 mb-5 ${styles.h1}`}>{t("Products")}</h1>
 
           <div className="row">
             {slicedData.map((ele) => {
@@ -44,7 +44,7 @@ const HomeProduct = () => {
               return (
                 <div
                   key={ele.id}
-                  className="col-sm-12 col-md-6 mb-5 d-flex justify-content-sm-around"
+                  className="col-sm-12 col-md-4 mb-5 d-flex justify-content-sm-around"
                 >
                   <MultiActionAreaCard
                     name={ele.attributes.name}

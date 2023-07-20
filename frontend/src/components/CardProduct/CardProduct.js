@@ -45,14 +45,14 @@ export default function MultiActionAreaCard({ name, description, image, id }) {
         </p>
         <Link
           to={`https://wa.me/+${"01067652075"}`}
-          className={`btn ${styles.btnColor}`}
+          className={`btn ${styles.btnColor} my-2`}
           style={{ border: isTheme === true ? "1px solid #0FEF96" : "" }}
         >
           {t("Inquiry Request")}
         </Link>
         <Link
           to={`/product/${id}`}
-          className={`btn ${styles.btnColor} mx-3`}
+          className={`btn ${styles.btnColor} `}
           style={{ border: isTheme === true ? "1px solid #0FEF96" : "" }}
         >
           {t("More Info")}

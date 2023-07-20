@@ -32,7 +32,7 @@ const Product = () => {
 
   return (
     <div
-      className={`container `}
+      className={`container mb-5`}
       style={{
         backgroundColor: isTheme === true ? "black" : "white",
       }}
@@ -49,7 +49,7 @@ const Product = () => {
           return (
             <div
               key={ele.id}
-              className="col-sm-12 col-md-6 mb-5 d-flex justify-content-sm-around"
+              className="col-sm-12 col-md-3 mb-5 d-flex justify-content-sm-around"
             >
               <MultiActionAreaCard
                 name={ele.attributes.name}
@@ -65,7 +65,7 @@ const Product = () => {
           <div key={item.id}>{item.title}</div>
         ))}
         <div
-          className={`d-flex justify-content-cente ${styles.paginationContainer}  `}
+          className={`d-flex justify-content-center ${styles.paginationContainer}  `}
         >
           <ReactPaginate
             className={`${styles.page}`}
