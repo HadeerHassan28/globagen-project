@@ -8,6 +8,13 @@ import { Link } from "react-router-dom";
 export default function MultiActionAreaCard({ name, description, image, id }) {
   const { t } = useTranslation();
   let { isTheme } = useContext(conTheme);
+  const maxDescriptionLength = 50; //per character
+
+  const truncatedDescription =
+    description.length > maxDescriptionLength
+      ? description.substring(0, maxDescriptionLength) + "..." // Add ellipsis if the description is longer
+      : description;
+
   //console.log(name);
   return (
     <div
@@ -34,7 +41,7 @@ export default function MultiActionAreaCard({ name, description, image, id }) {
           class="card-text"
           style={{ color: isTheme === true ? "white" : "#071848" }}
         >
-          {description}
+          {truncatedDescription}
         </p>
         <Link
           to={`https://wa.me/+${"01067652075"}`}
